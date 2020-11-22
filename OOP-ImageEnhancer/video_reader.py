@@ -32,12 +32,15 @@ class VideoReader:
     def releaseCapture(self):
         self.video_obj.release()
         
-    def saveFrame(self):
+    def saveFrame(self, user_frame = None):
         if self.save_path is None:
             print('Save path is None')
             return 0
         path = self.save_path + '\FrameNo{0}.png'.format(self.frame_No)
-        cv2.imwrite(path, self.frame)
+        if user_frame is None:
+            cv2.imwrite(path, self.frame)
+        else:
+            cv2.imwrite(path, user_frame)
         
         
         
