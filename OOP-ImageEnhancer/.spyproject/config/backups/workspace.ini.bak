@@ -6,5 +6,5 @@ save_non_project_files = False
 
 [main]
 version = 0.2.0
-recent_files = ['video_reader.py', 'frame_enhancer.py', 'main.py']
+recent_files = ['video_reader.py', 'frame_enhancer.py', 'main.py', 'face_detector.py']
 

@@ -1,6 +1,5 @@
 import torch
 import torch.optim
-import torch.transforms
 import os
 import model
 import numpy as np
@@ -14,6 +13,7 @@ class LowLightEnhance():
     def torch_tensor_to_image(self, tensor):
         img = tensor.cpu().data.numpy()[0]
         img = np.transpose(img, (1, 2, 0)) * 255
+        return img
         
     def enhance(self, frame):
         os.environ['CUDA_VISIBLE_DEVICES'] = str(self.gpu_id)
