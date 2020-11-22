@@ -27,7 +27,9 @@ class VideoReader:
         return ret, self.frame, self.frame_No
 
     def getVideoDimension(self):
-        pass
+        frame_width = int(self.video_obj.get(3))
+        frame_height = int(self.video_obj.get(4))
+        return frame_width, frame_height
     
     def releaseCapture(self):
         self.video_obj.release()
