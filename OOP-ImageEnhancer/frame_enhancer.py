@@ -6,7 +6,7 @@ import numpy as np
 from PIL import Image
 
 class LowLightEnhance():
-    def __init__(self, gpu_id = -1, model_path):
+    def __init__(self, model_path, gpu_id = -1):
         self.gpu_id  = gpu_id
         self.model_path = model_path
         

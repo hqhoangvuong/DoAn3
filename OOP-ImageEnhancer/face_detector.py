@@ -19,7 +19,7 @@ class FaceDetector:
             
         for idx, face in enumerate(faces_data):
             b = face.bbox.astype(np.int).flatten()
-            cv2.rectangle(frame, (b[0], b[1]), (b[2], b[3]), (0,255,0), 2)
+            cv2.rectangle(frame, (b[0], b[1]), (b[2], b[3]), (0, 255, 0), 2)
             
         return frame
         
