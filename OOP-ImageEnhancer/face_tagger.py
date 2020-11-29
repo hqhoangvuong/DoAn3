@@ -111,4 +111,5 @@ class CentroidTracker():
             else:
                 for col in unusedCols:
                     self.register(inputCentroids[col])
-        return self.objects
+            
+        return self.objects, self.maxAppeared

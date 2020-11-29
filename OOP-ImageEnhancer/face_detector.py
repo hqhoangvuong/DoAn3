@@ -16,12 +16,18 @@ class FaceDetector:
         faces_data = self.faces
         if user_face is not None:
             faces_data = user_face
+        
+        rects = []
             
         for idx, face in enumerate(faces_data):
-            b = face.bbox.astype(np.int).flatten()
-            cv2.rectangle(frame, (b[0], b[1]), (b[2], b[3]), (0, 255, 0), 2)
-            
-        return frame
+            bbox = face.bbox.astype(np.int).flatten()
+            rects.append(bbox)
+            cv2.rectangle(frame, 
+                          (bbox[0], bbox[1]), 
+                          (bbox[2], bbox[3]), 
+                          (0, 255, 0), 
+                          2)
+        return frame, rects
         
         
         
