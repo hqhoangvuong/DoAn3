@@ -5,7 +5,7 @@ from frame_enhancer import LowLightEnhance
 from face_detector import FaceDetector
 
 video_reader = VideoReader()
-low_light_enhancer = LowLightEnhance(0, 'snapshots/Epoch99.pth')
+low_light_enhancer = LowLightEnhance('snapshots/Epoch99.pth', 0)
 face_detector = FaceDetector(0)
 
 video_reader.setVideoPath(r'D:\video\video2.mp4')
