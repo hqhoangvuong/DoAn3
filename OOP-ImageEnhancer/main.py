@@ -12,7 +12,7 @@ low_light_enhancer = LowLightEnhance('snapshots/Epoch99.pth', 0)
 face_detector = FaceDetector(gpu_id = 0)
 face_tagger = CentroidTracker(maxDisappeared = 25)
 
-video_reader.setVideoPath(r'D:\video\video2.mp4')
+video_reader.setVideoPath(r'videos/video2.mp4')
 video_reader.setFrameSavePath(r'savedframes')
 
 def main():
@@ -28,13 +28,13 @@ def main():
         faces = face_detector.detect(frame)
         frame, rects = face_detector.draw_boundary_box(frame)
         
-        (objects, maxAppereds) = face_tagger.update(rects)
+        objects, maxAppereds = face_tagger.update(rects)
             
         for (objectID, centroid) in objects.items():
             text = "ID {0}".format(objectID)
             text_color = (255, 0, 0)
             
-            if maxAppereds.items[objectID] >= 100:
+            if maxAppereds.get(objectID) >= 50:
                 text_color = (0, 255, 0)
                 
             cv2.putText(frame, 

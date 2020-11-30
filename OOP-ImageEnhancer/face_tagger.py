@@ -20,8 +20,8 @@ class CentroidTracker():
     def register(self, centroid):
         self.objects[self.nextObjectID] = centroid
         self.disappeared[self.nextObjectID] = 0
-        self.nextObjectID += 1
         self.maxAppeared[self.nextObjectID] = 1
+        self.nextObjectID += 1
         
     def deregister(self, objectID):
         del self.objects[objectID]
@@ -37,7 +37,7 @@ class CentroidTracker():
                 self.disappeared[objectID] += 1
                 if self.disappeared[objectID] > self.maxDisappeared:
                     self.deregister(objectID)
-            return self.objects
+            return self.objects, self.maxAppeared
         
         # Khoi tao ma tran toan 0 len(rects) hang, 2 cot 
         # [[X, Y], [X1, Y1], ..., [Xn, Yn]]
